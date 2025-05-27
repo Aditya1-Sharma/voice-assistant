@@ -1,5 +1,5 @@
 from http import server
-
+from dotenv import load_dotenv
 from unittest import result
 import pyttsx3
 import datetime
@@ -12,9 +12,12 @@ import pyaudio
 import requests
 
 
-# from jarvis_ai import sendEmail
+load_dotenv()
 
-newsApi = "a23fae92555e4cd894cf3ca2f8b580bd"
+newsApi = os.getenv('NEWS_API')
+email_pass = os.getenv('EMAIL_PASS')
+
+print(newsApi , email_pass)
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -64,7 +67,7 @@ def sendEmail(to, content):
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.ehlo()
         server.starttls()
-        server.login('pekodora6@gmail.com', 'dehugiagobihqgnd')
+        server.login('pekodora6@gmail.com', email_pass)
         server.sendmail('pekodora6@gmail.com', to, content)
         server.close()
     except Exception as e:
