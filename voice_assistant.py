@@ -115,7 +115,7 @@ if __name__ == "__main__":
             try:
                 speak("what shout i say?")
                 content = takeCommand()
-                # content= "Dear Aditya you have been selected for the microsoft placement of 50 lakh ctc"
+                # content= "Dear Adsdgdsgitya you have been selected for the microsoft placement of 50 lakh ctc"
                 to = 'sharmaujjawal546@gmail.com'
                 sendEmail(to, content)
                 speak("Email has been sent!")
